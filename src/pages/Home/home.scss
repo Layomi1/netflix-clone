@@ -1,0 +1,60 @@
+.hero {
+  position: relative;
+
+  .banner-img {
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 75%);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 75%);
+  }
+  figure {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 6%;
+
+    figure img {
+      width: 90%;
+      max-width: 420px;
+      margin-bottom: 30px;
+    }
+    figcaption {
+      max-width: 700px;
+      font-size: 0.94rem;
+      margin-bottom: 20px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 50px;
+      .btn {
+        padding: 8px 20px;
+        border: 0;
+        outline: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.94rem;
+        font-weight: 600;
+        background: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: #ffffbf;
+        }
+
+        &:nth-child(2) {
+          background: #6d6d6eb3;
+          color: #fff;
+          &:hover {
+            background: #6d6d6e66;
+          }
+        }
+
+        img {
+          width: 25px;
+        }
+      }
+    }
+  }
+}
