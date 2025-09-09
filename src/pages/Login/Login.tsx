@@ -14,7 +14,7 @@ const Login = () => {
           <input type="email" placeholder="Email only" />
           <input type="passord" placeholder="Password" />
 
-          <button>Sign In</button>
+          <button onClick={handleSignin}>Sign In</button>
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />
