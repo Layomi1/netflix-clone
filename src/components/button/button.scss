@@ -1,0 +1,29 @@
+.btn {
+  padding: 8px 20px;
+  border: 0;
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ffffbf;
+  }
+
+  &:nth-child(2) {
+    background: #6d6d6eb3;
+    color: #fff;
+    &:hover {
+      background: #6d6d6e66;
+    }
+  }
+
+  img {
+    width: 25px;
+  }
+}

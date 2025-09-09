@@ -1,16 +1,20 @@
 import "./home.scss";
 import Navbar from "../../components/navbar/Navbar";
-import hero_banner from "../../assets/hero_banner.jpg";
 import hero_title from "../../assets/hero_title.png";
 import play from "../../assets/play_icon.png";
 import infoIcon from "../../assets/info_icon.png";
+import TitleCards from "../../components/title-cards/Title-cards";
+import Button from "../../components/button/Button";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
+  const handlePlay = () => {};
+  const handleInfo = () => {};
+
   return (
     <div className="home">
       <Navbar />
       <article className="hero">
-        <img src={hero_banner} alt="banner" className="banner-img" />
         <figure className="hero-caption">
           <img src={hero_title} alt="title" className="caption-img" />
           <figcaption>
@@ -19,17 +23,21 @@ const Home = () => {
             imortal enemy.
           </figcaption>
           <div className="hero-btns">
-            <button className="btn">
-              <img src={play} alt="play" />
-              <span>Play</span>
-            </button>
-            <button className="btn dark-btn">
-              <img src={infoIcon} alt="more info" />
-              <span> More Info</span>
-            </button>
+            <Button img={play} desc="Play" handleClick={handlePlay} />
+
+            <Button img={infoIcon} desc="More Info" handleClick={handleInfo} />
           </div>
         </figure>
       </article>
+
+      <TitleCards />
+      <div className="more-cards">
+        <TitleCards title="Blockbuster Movies" />
+        <TitleCards title="Only on Netflix" />
+        <TitleCards title="Upcoming" />
+        <TitleCards title="Top Picks for You" />
+      </div>
+      <Footer />
     </div>
   );
 };
