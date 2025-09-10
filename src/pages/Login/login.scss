@@ -39,6 +39,36 @@
         font-size: 1rem;
         font-weight: 500;
       }
+      .form-help {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #b3b3b3;
+        font-size: 13px;
+
+        .remember {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          white-space: nowrap;
+
+          input {
+            width: 18px;
+            height: 18px;
+            accent-color: blue;
+          }
+        }
+      }
+    }
+    .form-switch {
+      margin-top: 40px;
+      color: #737373;
+      a {
+        margin-left: 6px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+      }
     }
   }
 }

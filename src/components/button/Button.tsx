@@ -2,16 +2,16 @@ import { type FC } from "react";
 import "./button.scss";
 
 type ButtonProps = {
-  img?: string;
-  desc: string;
+  children: React.ReactNode;
+
   handleClick: () => void;
+  style?: React.CSSProperties;
 };
 
-const Button: FC<ButtonProps> = ({ img, desc, handleClick }) => {
+const Button: FC<ButtonProps> = ({ children, handleClick, style }) => {
   return (
-    <button className="btn" onClick={handleClick} style={{}}>
-      <img src={img} alt={desc} />
-      <span>{desc}</span>
+    <button className="btn" onClick={handleClick} style={style}>
+      {children}
     </button>
   );
 };

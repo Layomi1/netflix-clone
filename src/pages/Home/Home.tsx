@@ -23,9 +23,15 @@ const Home = () => {
             imortal enemy.
           </figcaption>
           <div className="hero-btns">
-            <Button img={play} desc="Play" handleClick={handlePlay} />
+            <Button handleClick={handlePlay}>
+              <img src={play} alt="Play" />
+              <span>Play</span>
+            </Button>
 
-            <Button img={infoIcon} desc="More Info" handleClick={handleInfo} />
+            <Button handleClick={handleInfo}>
+              <img src={infoIcon} alt="info" />
+              <span>More Info</span>
+            </Button>
           </div>
         </figure>
       </article>
