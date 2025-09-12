@@ -23,12 +23,12 @@ const Home = () => {
             imortal enemy.
           </figcaption>
           <div className="hero-btns">
-            <Button handleClick={handlePlay}>
+            <Button type="button" handleClick={handlePlay}>
               <img src={play} alt="Play" />
               <span>Play</span>
             </Button>
 
-            <Button handleClick={handleInfo}>
+            <Button type="button" handleClick={handleInfo}>
               <img src={infoIcon} alt="info" />
               <span>More Info</span>
             </Button>
@@ -38,10 +38,10 @@ const Home = () => {
 
       <TitleCards />
       <div className="more-cards">
-        <TitleCards title="Blockbuster Movies" />
-        <TitleCards title="Only on Netflix" />
-        <TitleCards title="Upcoming" />
-        <TitleCards title="Top Picks for You" />
+        <TitleCards title="Blockbuster Movies" category={"top_rated"} />
+        <TitleCards title="Only on Netflix" category="popular" />
+        <TitleCards title="Upcoming" category="upcoming" />
+        <TitleCards title="Top Picks for You" category="now_playing" />
       </div>
       <Footer />
     </div>

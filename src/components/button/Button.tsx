@@ -3,14 +3,14 @@ import "./button.scss";
 
 type ButtonProps = {
   children: React.ReactNode;
-
-  handleClick: () => void;
+  type: "submit" | "button" | "reset";
+  handleClick?: () => void;
   style?: React.CSSProperties;
 };
 
-const Button: FC<ButtonProps> = ({ children, handleClick, style }) => {
+const Button: FC<ButtonProps> = ({ children, handleClick, type, style }) => {
   return (
-    <button className="btn" onClick={handleClick} style={style}>
+    <button type={type} className="btn" onClick={handleClick} style={style}>
       {children}
     </button>
   );

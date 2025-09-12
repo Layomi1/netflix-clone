@@ -17,12 +17,19 @@
     figure {
       width: 240px;
       flex: 0 0 auto;
-
+      color: white;
+      .card-list-link {
+        text-decoration: none;
+      }
       img {
         border-radius: 4px;
         width: 100%;
         object-fit: cover;
         cursor: pointer;
+      }
+      figcaption {
+        color: white;
+        text-decoration: none;
       }
     }
   }

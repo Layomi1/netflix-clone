@@ -1,3 +1,13 @@
+.spinner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 60px;
+  }
+}
 .login {
   height: 100vh;
   background: linear-gradient(#0000007e, #0000007e),

@@ -13,7 +13,9 @@
     transparent
   );
   z-index: 2;
-
+  &.nav-dark {
+    background-color: #141414;
+  }
   .navbar-left {
     display: flex;
     align-items: center;
@@ -61,12 +63,12 @@
         width: max-content;
         padding: 18px 22px;
         border-radius: 2px;
-        text-decoration: underline;
         z-index: 1;
         display: none;
-        p {
+        .link {
           cursor: pointer;
           font-size: 0.82rem;
+          color: white;
         }
       }
     }
