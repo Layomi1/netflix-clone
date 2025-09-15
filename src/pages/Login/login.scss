@@ -1,3 +1,5 @@
+@import "../../styles//responsive.scss";
+
 .spinner {
   width: 100%;
   height: 100vh;
@@ -15,6 +17,9 @@
   background-size: cover;
   padding: 20px 8%;
 
+  @include sm {
+    padding: 15px 5%;
+  }
   img {
     width: 150px;
   }
@@ -25,6 +30,11 @@
     border-radius: 4px;
     padding: 60px;
     margin: auto;
+
+    @include sm {
+      padding: 20px;
+      margin-top: 30px;
+    }
 
     h1 {
       font-size: 2rem;

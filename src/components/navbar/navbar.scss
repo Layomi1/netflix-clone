@@ -1,3 +1,5 @@
+@import "../../styles//responsive.scss";
+
 .navbar {
   display: flex;
   align-items: center;
@@ -13,6 +15,10 @@
     transparent
   );
   z-index: 2;
+
+  @include lg {
+    padding: 20px 4%;
+  }
   &.nav-dark {
     background-color: #141414;
   }
@@ -20,14 +26,26 @@
     display: flex;
     align-items: center;
     gap: 50px;
+
     img {
       width: 90px;
+
+      @include lg {
+        height: 25px;
+      }
+
+      @include md {
+        height: 20px;
+      }
     }
 
     ul {
       display: flex;
       align-items: center;
       gap: 20px;
+      @include lg {
+        display: none;
+      }
       li {
         list-style: none;
         cursor: pointer;
@@ -38,6 +56,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @include md {
+      gap: 10px;
+    }
     .icons {
       width: 20px;
       cursor: pointer;

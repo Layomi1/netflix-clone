@@ -6,11 +6,24 @@ type ButtonProps = {
   type: "submit" | "button" | "reset";
   handleClick?: () => void;
   style?: React.CSSProperties;
+  disabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({ children, handleClick, type, style }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  handleClick,
+  type,
+  style,
+  disabled,
+}) => {
   return (
-    <button type={type} className="btn" onClick={handleClick} style={style}>
+    <button
+      type={type}
+      className="btn"
+      disabled={disabled}
+      onClick={handleClick}
+      style={style}
+    >
       {children}
     </button>
   );

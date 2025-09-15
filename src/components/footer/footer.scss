@@ -1,3 +1,4 @@
+@import "../../styles//responsive.scss";
 .footer {
   padding: 30px 4%;
   max-width: 1000px;
@@ -10,6 +11,9 @@
     img {
       width: 30px;
       cursor: pointer;
+      @include md {
+        width: 25px;
+      }
     }
   }
   ul {
@@ -17,12 +21,18 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-bottom: 30px;
-
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
     li {
       list-style: none;
       a {
         text-decoration: none;
         color: #fff;
+        @include md {
+          font-size: 0.875rem;
+        }
       }
     }
   }

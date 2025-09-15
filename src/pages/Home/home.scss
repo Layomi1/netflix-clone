@@ -1,3 +1,5 @@
+@import "../../styles/responsive.scss";
+
 .hero {
   position: relative;
   width: 100%;
@@ -6,6 +8,10 @@
   background-size: cover;
   overflow-x: hidden;
 
+  @include sm {
+    background: url("../../assets/hero_banner.jpg") no-repeat 68% center;
+    overflow-x: hidden;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -17,6 +23,14 @@
     );
     z-index: 1;
     width: 100%;
+
+    @include sm {
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 10%,
+        transparent 70%
+      );
+    }
   }
   figure {
     position: absolute;
@@ -24,24 +38,59 @@
     bottom: 0;
     left: 6%;
     z-index: 2;
+    @include md {
+      left: 4%;
+    }
 
-    figure img {
+    .caption-img {
       width: 90%;
       max-width: 420px;
       margin-bottom: 30px;
+
+      @include md {
+        margin-bottom: 10px;
+        width: 40%;
+      }
+
+      @include sm {
+        display: none;
+      }
     }
     figcaption {
       max-width: 700px;
       font-size: 0.94rem;
       margin-bottom: 20px;
+
+      @include md {
+        padding-right: 50px;
+        margin-bottom: 10px;
+        font-size: 0.75rem;
+      }
+      @include md {
+        padding-right: 20px;
+      }
     }
     .hero-btns {
       display: flex;
       gap: 10px;
       margin-bottom: 50px;
+
+      @include md {
+        margin-bottom: 30px;
+      }
+
+      .hero-btns img {
+        @include md {
+          width: 20px;
+        }
+      }
     }
   }
   .more-cards {
     padding-left: 6%;
+
+    @include md {
+      padding-left: 4%;
+    }
   }
 }
