@@ -1,6 +1,6 @@
 import "./player.scss";
 import back_arrow_icon from "../../assets/back_arrow_icon.png";
-import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 
