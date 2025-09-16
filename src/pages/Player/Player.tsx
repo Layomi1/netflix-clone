@@ -2,6 +2,7 @@ import "./player.scss";
 import back_arrow_icon from "../../assets/back_arrow_icon.png";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 
 type PlayerInfo = {
   name: string;
@@ -10,14 +11,26 @@ type PlayerInfo = {
   published_at: string;
 };
 
-const Player = () => {
-  const [apiData, setApiData] = useState<PlayerInfo>({
-    name: "",
-    type: "",
-    key: "",
-    published_at: "",
-  });
+const fetchMovie = async (id: string): Promise<PlayerInfo> => {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+    },
+  };
+  const result = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+    options
+  );
+  const data = await result.json();
+  if (!data.results || data.results.length === 0) {
+    throw new Error("No trailer found");
+  }
 
+  return data.results[0];
+};
+const Player = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -26,23 +39,15 @@ const Player = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZWU3OTRiOWM4NjQ5Mjg1ZTFjM2JiMWZmMTJmM2ExMyIsIm5iZiI6MTc1NzUwMTU4My45NTUwMDAyLCJzdWIiOiI2OGMxNTg4ZmJhMTI5M2IzOTI5YmQ0MjIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.uzA5_e61I4vC8xY-4pPpgWW1Es-_k_AJ3Oq337R7L8g",
-      },
-    };
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
-      options
-    )
-      .then((res) => res.json())
-      .then((res) => setApiData(res.results[0]))
-      .catch((err) => console.error(err));
-  }, [id]);
+  const { isLoading, data, error } = useQuery({
+    queryKey: ["movie", id],
+    queryFn: () => fetchMovie(id as string),
+    enabled: !!id,
+  });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error instanceof Error) return <p>Error: {error.message}</p>;
+  if (!data) return <p>No data available</p>;
 
   return (
     <div className="player">
@@ -50,15 +55,15 @@ const Player = () => {
       <iframe
         width="90%"
         height="90%"
-        src={`https://www.youtube.com/embed/${apiData.key}`}
+        src={`https://www.youtube.com/embed/${data.key}`}
         title="trailer"
         frameBorder="0"
         allowFullScreen
       ></iframe>
       <div className="player-info">
-        <p>{apiData.published_at.slice(0, 10)}</p>
-        <p>{apiData.name}</p>
-        <p>{apiData.type}</p>
+        <p>{data.published_at.slice(0, 10)}</p>
+        <p>{data.name}</p>
+        <p>{data.type}</p>
       </div>
     </div>
   );
